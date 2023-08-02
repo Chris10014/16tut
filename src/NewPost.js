@@ -1,6 +1,8 @@
-const NewPost = () => {
+const NewPost = ({
+  handleSubmit, postTitle, setPostTitle, postBody, setPostBody
+}) => {
     return (
-      <main>
+      <main className="NewPost">
           <h1>NewPost</h1>
       </main>
     )
