@@ -18,7 +18,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "show-ssh-win": "type ~.ssh[backslash]id_rsa.pub",
-    "ceate-ssh-linux": "",
+    "ceate-ssh": "ssh-keygen",
     "show-ssh-linux": "cat ~/.ssh/id_rsa.pub"
   },
   "eslintConfig": {
