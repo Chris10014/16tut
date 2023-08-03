@@ -8,7 +8,7 @@ import About from './About';
 import Missing from './Missing';
 import { Route, Routes, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
-
+import { format } from "date-fns";
 function App() {
 
   const [posts, setPosts] = useState([
@@ -43,8 +43,24 @@ function App() {
   const [postBody, setPostBody] = useState('');
   const navigate = useNavigate();
 
-  const handleSubmit = () => {
-    
+  useEffect(() => {
+    const filteredResults = posts.filter(post => 
+      ((post.body).toLowerCase()).includes(search.toLowerCase())
+      || ((post.title).toLowerCase()).includes(search.toLowerCase()));
+
+      setSearchResults(filteredResults.reverse());
+  }, [posts, search])
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const id = posts.length ? posts[posts.length - 1].id + 1 : 1;
+    const datetime = format(new Date(), "dd MMMM, yyyy pp");
+    const newPost = {id, title: postTitle, datetime, body: postBody};
+    const allPosts = [...posts, newPost];
+    setPosts(allPosts);
+    setPostTitle("");
+    setPostBody("");
+    navigate('/');    
   }
 
   const handleDelete = (id) => {
@@ -58,7 +74,7 @@ function App() {
       <Header title="React JS Blog" />
       <Nav search={search} setSearch={setSearch} />
         <Routes>
-          <Route exact path="/" element={<Home posts={posts} />} />
+          <Route exact path="/" element={<Home posts={searchResults} />} />
           <Route exact path="/post" element={<NewPost 
             handleSubmit={handleSubmit}
             postTitle={postTitle}
