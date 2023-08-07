@@ -1,4 +1,3 @@
-import {useSubmit} from 'react-router-dom'
 const NewPost = ({
   handleSubmit, postTitle, setPostTitle, postBody, setPostBody
 }) => {

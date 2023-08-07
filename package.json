@@ -6,6 +6,7 @@
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "axios": "^1.4.0",
     "date-fns": "^2.30.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -20,7 +21,8 @@
     "eject": "react-scripts eject",
     "show-ssh-win": "type ~.ssh[backslash]id_rsa.pub",
     "ceate-ssh": "ssh-keygen",
-    "show-ssh-linux": "cat ~/.ssh/id_rsa.pub"
+    "show-ssh-linux": "cat ~/.ssh/id_rsa.pub",
+    "start-jeson-server": "npx json-server -p 3500 -w data/db.json"
   },
   "eslintConfig": {
     "extends": [
