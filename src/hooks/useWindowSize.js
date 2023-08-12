@@ -22,7 +22,6 @@ const useWindowSize = () => {
         return () => window.removeEventListener("resize", handleResize); //cleanUp function
     }, [])
 
-    console.log("size:", windowSize)     
     return windowSize;
 }
 

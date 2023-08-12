@@ -28,7 +28,6 @@ const useAxiosFetch = (dataUrl) => {
             } finally {
                 isMounted && setIsLoading(false);
             }
-
         }
         
         fetchData(dataUrl);
